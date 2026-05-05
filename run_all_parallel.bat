@@ -1,11 +1,12 @@
-@echo off
+#!/bin/bash
 
-echo Running all 4 NG cases in parallel...
+echo "Running all 4 NG cases in parallel..."
 
-start "NG5"  cmd /c run_one_ng.bat 5
-start "NG10" cmd /c run_one_ng.bat 10
-start "NG15" cmd /c run_one_ng.bat 15
-start "NG20" cmd /c run_one_ng.bat 20
+bash run_one_ng.sh 5  &
+bash run_one_ng.sh 10 &
+bash run_one_ng.sh 15 &
+bash run_one_ng.sh 20 &
 
-echo All jobs launched...
-pause
+wait
+
+echo "All jobs launched..."
